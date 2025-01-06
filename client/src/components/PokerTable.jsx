@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "./PokerTable.css";
 
-// server IP 18.221.228.104
-const SOCKET_SERVER_URL = "http://18.221.228.104:3000"; // Замените на ваш Public IPv4 address
+// server IP 3.142.149.178
+const SOCKET_SERVER_URL = "http://3.142.149.178:3000"; // Замените на ваш Public IPv4 address
 const socket = io(SOCKET_SERVER_URL);
 
 const avatars = [

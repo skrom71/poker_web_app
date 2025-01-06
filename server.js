@@ -1,22 +1,22 @@
 import express from "express";
 import { Server } from "socket.io";
-// import cors from "cors";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const LOCAL_ID = "0.0.0.0";
+const LOCAL_ID = "172.31.16.214";
 
 // const LOCAL_ID = "localhost";
 
-// const corsOptions = {
-//   origin: "http://localhost:5173", // Разрешить запросы только с вашего фронтенда
-//   methods: ["GET", "POST"],
-//   allowedHeaders: ["Content-Type"],
-// };
+const corsOptions = {
+  origin: "http://3.142.149.178:3000", // Разрешить запросы только с вашего фронтенда
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
 
-// // Используем CORS middleware
-// app.use(cors(corsOptions));
+// Используем CORS middleware
+app.use(cors(corsOptions));
 
 // Запускаем сервер Express
 const server = app.listen(PORT, LOCAL_ID, () => {
@@ -31,15 +31,14 @@ app.get("/", (req, res) => {
 let tableState = [null, null, null, null];
 
 // Интегрируем WebSocket-сервер с Express
-const io = new Server(server);
 
-// // Настройка CORS для WebSocket-сервера
-// const io = new Server(server, {
-//   cors: {
-//     origin: 'http://localhost:5173', // URL вашего фронтенда
-//     methods: ['GET', 'POST'],
-//   },
-// });
+const io = new Server(server, {
+  cors: {
+    origin: "http://3.142.149.178:3000", // Разрешаем доступ с этого домена/IP
+    methods: ["GET", "POST"], // Разрешаем GET и POST методы
+    allowedHeaders: ["Content-Type"], // Разрешаем заголовки
+  },
+});
 
 io.on("connection", (socket) => {
   console.log("Socket ID:", socket.id);
