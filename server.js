@@ -1,42 +1,46 @@
 import express from "express";
 import { Server } from "socket.io";
-import cors from "cors";
+import http from "http";
+// import cors from "cors";
 
 const app = express();
+const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
 
-const LOCAL_ID = "172.31.16.214";
+const LOCAL_IP = "172.31.16.214";
 
 // const LOCAL_ID = "localhost";
 
-const corsOptions = {
-  origin: "http://3.142.149.178:3000", // Разрешить запросы только с вашего фронтенда
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],
-};
+//const corsOptions = {
+//   origin: "http://3.142.149.178", // Разрешить запросы только с вашего фронтенда
+//   methods: ["GET", "POST"],
+//   allowedHeaders: ["Content-Type"],
+//};
 
 // Используем CORS middleware
-app.use(cors(corsOptions));
-
-// Запускаем сервер Express
-const server = app.listen(PORT, LOCAL_ID, () => {
-  console.log(`Сервер запущен на http://${LOCAL_ID}:${PORT}`);
-});
+//app.use(cors(corsOptions));
 
 // Обработка HTTP-запросов
 app.get("/", (req, res) => {
   res.send("Привет! Это HTTP-запрос.");
 });
 
+// Обработка HTTP-запросов
+app.get("/api", (req, res) => {
+  res.send("!API не добавлен");
+});
+
 let tableState = [null, null, null, null];
 
 // Интегрируем WebSocket-сервер с Express
 
+// Настройка CORS для Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: "http://3.142.149.178:3000", // Разрешаем доступ с этого домена/IP
-    methods: ["GET", "POST"], // Разрешаем GET и POST методы
-    allowedHeaders: ["Content-Type"], // Разрешаем заголовки
+    origin: "*", // Разрешить все источники, или укажите конкретные домены
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Разрешить отправку cookies (если нужно)
   },
 });
 
@@ -67,4 +71,9 @@ io.on("connection", (socket) => {
     tableState = tableState.map((seat) => (seat === socket.id ? null : seat));
     io.emit("tableState", tableState);
   });
+});
+
+// HTTP сервер слушает на порту 3000
+server.listen(PORT, () => {
+  console.log("Server running on http://${LOCAL_IP}:${PORT}");
 });
