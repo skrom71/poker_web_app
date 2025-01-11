@@ -1,0 +1,68 @@
+.main-container-session {
+}
+
+.player {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 20%;
+  height: 12%;
+}
+
+.player-top-1 {
+  top: -2%;
+  left: 20%;
+}
+
+.player-top-2 {
+  top: -2%;
+  right: 20%;
+}
+
+.player-bottom-1 {
+  bottom: -2%;
+  left: 20%;
+}
+
+.player-bottom-2 {
+  bottom: -2%;
+  right: 20%;
+}
+
+.player-left-1 {
+  left: -6%;
+  top: 25%;
+  transform: translateY(-25%);
+}
+
+.player-left-2 {
+  left: -6%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.player-left-3 {
+  left: -6%;
+  top: 75%;
+  transform: translateY(-75%);
+}
+
+.player-right-1 {
+  right: -6%;
+  top: 25%;
+  transform: translateY(-25%);
+}
+
+.player-right-2 {
+  right: -6%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.player-right-3 {
+  right: -6%;
+  top: 75%;
+  transform: translateY(-75%);
+}
