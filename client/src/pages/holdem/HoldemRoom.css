@@ -1,0 +1,44 @@
+/* PokerTable.css */
+
+html,
+body {
+  margin: 0;
+  font-family: "Asap", serif;
+  overflow: hidden;
+}
+
+/* Для мобильных устройств */
+@media (orientation: portrait) {
+  .main-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .poker-table {
+    position: absolute;
+    width: 76%;
+    display: flex;
+  }
+}
+
+/* Для мобильных ПК */
+@media (orientation: landscape) {
+  .poker-table {
+    height: calc(50vh);
+    /* width: calc(90vw); */
+    display: inline-block;
+    position: relative;
+    margin-top: 5vh;
+    /* padding: 50px; */
+  }
+}
+
+.background-image {
+  height: 100%;
+  width: 100%;
+}

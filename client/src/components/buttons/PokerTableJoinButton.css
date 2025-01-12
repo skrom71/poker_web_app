@@ -1,0 +1,22 @@
+.main-container-join-button {
+  width: 100%;
+  position: relative;
+}
+
+.join-button {
+  padding: 10%;
+  width: 80%;
+  border: 0;
+  background: linear-gradient(to bottom, #ffc400, #fac310, #daa802);
+  border-radius: 2vw;
+  font-family: "Asap", serif;
+  font-style: italic;
+  font-weight: 800;
+  color: #782c2c;
+  font-size: 2.5vw;
+  box-shadow: 0px 0px 12px #917003;
+  opacity: 0.98;
+}
+
+.join-button:active {
+}

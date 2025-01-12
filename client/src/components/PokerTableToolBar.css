@@ -1,0 +1,32 @@
+.main-container-toolbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 96%;
+  height: 5.5%;
+  padding: 2%;
+  gap: 4px;
+}
+
+.toolbar-button {
+  border: 1px solid #ffff;
+  height: 100%;
+  border-radius: 8px;
+  font-family: "Asap", serif;
+  font-size: 2.7vw;
+  color: rgba(255, 255, 255, 0.877);
+  flex: 1;
+}
+
+.red {
+  background: #511c1cc2;
+}
+
+.green {
+  background: #1c5133;
+}
+
+.disable {
+  opacity: 0.5;
+}
