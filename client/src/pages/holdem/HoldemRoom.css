@@ -22,8 +22,7 @@ body {
   .poker-table {
     position: absolute;
     width: 76%;
-    /* left: 12%;
-    bottom: 5%; */
+    display: flex;
   }
 }
 

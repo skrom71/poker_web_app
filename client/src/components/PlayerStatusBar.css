@@ -35,21 +35,24 @@
 }
 
 .player-status-bar-card1 {
-  width: 40%;
+  width: 60%;
   position: absolute;
   top: 0%;
-  left: 10%;
-  border: 1px solid #c4c4c4;
-  border-radius: 7px;
+  left: 2%;
+  /* box-shadow: 0px 0px 6px #303030; */
+  /* border-radius: 7px; */
   z-index: 1;
 }
 
 .player-status-bar-card2 {
-  width: 40%;
+  width: 60%;
   position: absolute;
   top: 0%;
-  right: 10%;
-  border: 1px solid #c4c4c4;
-  border-radius: 7px;
+  right: 2%;
+  /* box-shadow: 0px 0px 4px #000000; */
+  /* border-radius: 7px; */
   z-index: 2;
+}
+
+.plater-status-bar-card-back {
 }
