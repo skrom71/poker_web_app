@@ -28,8 +28,6 @@ function HoldemSession() {
   return (
     <div className="main-container-session">
       {gameState.players.map((player, key) => {
-        console.log("socket id: " + socket.id + player);
-        console.log(player);
         return (
           <div key={key}>
             <div className={"player player-" + player.player_position}>
@@ -38,48 +36,18 @@ function HoldemSession() {
                 isCurrent={gameState.current_player_id == player.player_id}
               />
             </div>
-            <div className={"player-" + player.player_position + "-bet"}>
-              {/* {player.bet} */}4423423.23
+            <div
+              className={"player-bet player-" + player.player_position + "-bet"}
+            >
+              {player.bet}
             </div>
           </div>
         );
       })}
-      {/* <div className="player player-top-1">
-        <PlayerStatusBar isCurrent={true} />
-      </div>
-      <div className="player-top-1-bet">34.4</div>
-      <div className="player player-top-2">
-        <JoinButton />
-      </div>
-      <div className="player player-left-1">
-        <PlayerStatusBar isCurrent={false} />
-      </div>
-      <div className="player-left-1-bet">34334.4</div>
-      <div className="player player-left-2">
-        <JoinButton />
-      </div>
-      <div className="player player-left-3">
-        <PlayerStatusBar isCurrent={false} />
-      </div>
-      <div className="player player-right-1">
-        <PlayerStatusBar isCurrent={false} />
-      </div>
-      <div className="player player-right-2">
-        <JoinButton />
-      </div>
-      <div className="player player-right-3">
-        <PlayerStatusBar isCurrent={false} />
-      </div>
-      <div className="player player-bottom-1">
-        <PlayerStatusBar isCurrent={false} />
-      </div>
-      <div className="player player-bottom-2">
-        <JoinButton />
-      </div> */}
 
       <div className="pot">
         <img src={ChipIcon} className="pot-icon" />
-        {/* {gameState.pot} */}443.3
+        {gameState.pot}
       </div>
 
       <div className="blinde">

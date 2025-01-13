@@ -16,43 +16,10 @@
   left: 20%;
 }
 
-.player-top-1-bet {
-  height: 3%;
-  position: absolute;
-  top: 12%;
-  left: 30%;
-  transform: translate(-50%);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  border-radius: 4vw;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 3%;
-  padding-right: 3%;
-  font-size: 2.5vw;
-  font-weight: 500;
-}
-
 .player-top-2 {
   top: -2%;
   right: 20%;
 }
-
-.player-top-2-bet {
-  top: -2%;
-  left: 20%;
-}
-
-.player-bottom-1 {
-  bottom: -2%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* .player-bottom-2 {
-  bottom: -2%;
-  right: 20%;
-} */
 
 .player-left-1 {
   left: -6%;
@@ -60,30 +27,7 @@
   transform: translateY(-25%);
 }
 
-.player-left-1-bet {
-  height: 3%;
-  position: absolute;
-  left: 14%;
-  top: 32%;
-  /* transform: translate(-50%, -50%); */
-  background-color: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  border-radius: 4vw;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 3%;
-  padding-right: 3%;
-  font-size: 2.5vw;
-  font-weight: 500;
-}
-
-/* .player-left-2 {
-  left: -6%;
-  top: 50%;
-  transform: translateY(-50%);
-} */
-
-.player-left-3 {
+.player-left-2 {
   left: -6%;
   top: 70%;
   transform: translateY(-75%);
@@ -95,16 +39,70 @@
   transform: translateY(-25%);
 }
 
-/* .player-right-2 {
-  right: -6%;
-  top: 50%;
-  transform: translateY(-50%);
-} */
-
-.player-right-3 {
+.player-right-2 {
   right: -6%;
   top: 70%;
   transform: translateY(-75%);
+}
+
+.player-bottom-1 {
+  bottom: -2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* bets ========================== */
+
+.player-bet {
+  height: 3%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 4vw;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+  font-size: 2.5vw;
+  font-weight: 500;
+}
+
+.player-top-1-bet {
+  top: 12%;
+  left: 30%;
+  transform: translate(-50%);
+}
+
+.player-top-2-bet {
+  top: 12%;
+  right: 30%;
+  transform: translate(50%);
+}
+
+.player-left-1-bet {
+  left: 14%;
+  top: 32%;
+}
+
+.player-left-2-bet {
+  left: 14%;
+  top: 65%;
+}
+
+.player-right-1-bet {
+  right: 14%;
+  top: 32%;
+}
+
+.player-right-2-bet {
+  right: 14%;
+  top: 65%;
+}
+
+.player-bottom-1-bet {
+  bottom: 12%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .blinde {

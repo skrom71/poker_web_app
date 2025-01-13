@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./HoldemRoom.css";
 import pokerTableImage from "/src/assets/images/poker-table.png";
-import Session from "./HoldemSession.jsx";
+import HoldemSession from "/src/pages/holdem/HoldemSession.jsx";
 import PokerTableToolBar from "../../components/PokerTableToolBar.jsx";
 
 function HoldemRoom() {
@@ -10,7 +10,7 @@ function HoldemRoom() {
       <div className="poker-table">
         <img src={pokerTableImage} className="background-image"></img>
 
-        <Session />
+        <HoldemSession />
       </div>
       <PokerTableToolBar />
     </div>
