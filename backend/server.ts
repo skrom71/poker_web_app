@@ -9,7 +9,10 @@ const server = http.createServer(app); // Создаем HTTP сервер с ap
 
 const io = new SocketServer(server, {
   cors: {
-    origin: "*", // Разрешение кросс-доменных запросов
+    origin: "*", // Разрешить все источники, или укажите конкретные домены
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Разрешить отправку cookies (если нужно)
   },
 });
 

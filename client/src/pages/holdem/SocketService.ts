@@ -8,9 +8,9 @@ export const initializeSocket = (
   onGameStateUpdate: (data: GameState) => void,
   onConnect: (id: string) => void
 ) => {
-  socket = io("http://localhost:8080");
+  socket = io("http://localhost:3000");
 
-  socket.on("connect", () => {
+  socket.on("connection", () => {
     socket.id && onConnect(socket.id);
   });
 
@@ -21,14 +21,15 @@ export const initializeSocket = (
   return socket;
 };
 
-export const joinGame = (playerId: string) => {
+export const joinGame = (playerId: string, position: number) => {
   socket.emit("joinGame", {
-    player_id: playerId,
+    id: playerId,
     name: `Игрок ${playerId}`,
     stack: 1500,
     cards: [],
     bet: 0,
     status: "active",
+    position: position,
   });
 };
 

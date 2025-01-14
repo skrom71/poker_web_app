@@ -10,7 +10,8 @@
     "resolveJsonModule": true, // Разрешение JSON-файлов
     "isolatedModules": true, // Необходим для React
     "noEmit": true, // TypeScript не будет генерировать JS
-    "jsx": "react-jsx" // Важный параметр для работы с JSX
+    "jsx": "react-jsx", // Важный параметр для работы с JSX
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*", "src/types.d.ts"],
   "exclude": ["node_modules"] // Исключаем node_modules
