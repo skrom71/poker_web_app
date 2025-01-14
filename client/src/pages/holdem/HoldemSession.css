@@ -1,170 +1,251 @@
-.main-container-session {
+/* PokerTable.css */
+
+/* Для мобильных устройств */
+@media (orientation: portrait) {
+  html,
+  body {
+    margin: 0;
+    font-family: "Asap", serif;
+    overflow: hidden;
+  }
+
+  .main-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .poker-desk {
+    position: absolute;
+    width: 76%;
+    display: flex;
+  }
+
+  .background-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  .player {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 20%;
+    height: 13%;
+  }
+
+  .player-1 {
+    top: -2%;
+    left: 20%;
+  }
+
+  .player-2 {
+    top: -2%;
+    right: 20%;
+  }
+
+  .player-3 {
+    left: -6%;
+    top: 30%;
+    transform: translateY(-25%);
+  }
+
+  .player-4 {
+    left: -6%;
+    top: 70%;
+    transform: translateY(-75%);
+  }
+
+  .player-5 {
+    right: -6%;
+    top: 30%;
+    transform: translateY(-25%);
+  }
+
+  .player-6 {
+    right: -6%;
+    top: 70%;
+    transform: translateY(-75%);
+  }
+
+  .player-7 {
+    bottom: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* bets ========================== */
+
+  .player-bet {
+    height: 3%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 4vw;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+
+  .player-1-bet {
+    top: 12%;
+    left: 30%;
+    transform: translate(-50%);
+  }
+
+  .player-2-bet {
+    top: 12%;
+    right: 30%;
+    transform: translate(50%);
+  }
+
+  .player-3-bet {
+    left: 14%;
+    top: 32%;
+  }
+
+  .player-4-bet {
+    left: 14%;
+    top: 65%;
+  }
+
+  .player-5-bet {
+    right: 14%;
+    top: 32%;
+  }
+
+  .player-6-bet {
+    right: 14%;
+    top: 65%;
+  }
+
+  .player-7-bet {
+    bottom: 12%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .blinde {
+    height: 3%;
+    position: absolute;
+    bottom: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #eeeeee;
+    border: #eeeeee solid 1px;
+    border-radius: 4.5vw;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 3%;
+    font-size: 2.5vw;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+  }
+
+  .pot {
+    height: 3%;
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 4.5vw;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 4%;
+    font-size: 3vw;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+  }
+
+  .pot-icon {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+  }
+
+  .commun-card-container {
+    height: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+  }
+
+  .commun-card {
+    height: 100%;
+    flex: 1;
+  }
 }
 
-.player {
+.toolbar {
   position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 20%;
-  height: 13%;
+  width: 96%;
+  height: 5.5%;
+  padding: 2%;
+  gap: 4px;
 }
 
-.player-top-1 {
-  top: -2%;
-  left: 20%;
-}
-
-.player-top-2 {
-  top: -2%;
-  right: 20%;
-}
-
-.player-left-1 {
-  left: -6%;
-  top: 30%;
-  transform: translateY(-25%);
-}
-
-.player-left-2 {
-  left: -6%;
-  top: 70%;
-  transform: translateY(-75%);
-}
-
-.player-right-1 {
-  right: -6%;
-  top: 30%;
-  transform: translateY(-25%);
-}
-
-.player-right-2 {
-  right: -6%;
-  top: 70%;
-  transform: translateY(-75%);
-}
-
-.player-bottom-1 {
-  bottom: -2%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* bets ========================== */
-
-.player-bet {
-  height: 3%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  border-radius: 4vw;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 3%;
-  padding-right: 3%;
-  font-size: 2.5vw;
-  font-weight: 500;
-}
-
-.player-top-1-bet {
-  top: 12%;
-  left: 30%;
-  transform: translate(-50%);
-}
-
-.player-top-2-bet {
-  top: 12%;
-  right: 30%;
-  transform: translate(50%);
-}
-
-.player-left-1-bet {
-  left: 14%;
-  top: 32%;
-}
-
-.player-left-2-bet {
-  left: 14%;
-  top: 65%;
-}
-
-.player-right-1-bet {
-  right: 14%;
-  top: 32%;
-}
-
-.player-right-2-bet {
-  right: 14%;
-  top: 65%;
-}
-
-.player-bottom-1-bet {
-  bottom: 12%;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.blinde {
-  height: 3%;
-  position: absolute;
-  bottom: 36%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #eeeeee;
-  border: #eeeeee solid 1px;
-  border-radius: 4.5vw;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  padding-left: 2%;
-  padding-right: 3%;
-  font-size: 2.5vw;
-  font-weight: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8%;
-}
-
-.pot {
-  height: 3%;
-  position: absolute;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-  border-radius: 4.5vw;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 3%;
-  padding-right: 4%;
-  font-size: 3vw;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8%;
-}
-
-.pot-icon {
+.toolbar-button {
+  border: 1px solid #ffff;
   height: 100%;
+  border-radius: 8px;
+  font-family: "Asap", serif;
+  font-size: 2.7vw;
+  color: rgba(255, 255, 255, 0.877);
+  flex: 1;
+}
+
+.red {
+  background: #511c1cc2;
+}
+
+.green {
+  background: #1c5133;
+}
+
+.disable {
+  opacity: 0.5;
+}
+
+.join-button-container {
   width: 100%;
-  flex: 1;
+  position: relative;
 }
 
-.commun-card-container {
-  height: 10%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-}
-
-.commun-card {
-  height: 100%;
-  flex: 1;
-  /* border: 1px solid #c4c4c4;
-  border-radius: 7px; */
+.join-button {
+  padding: 10%;
+  width: 80%;
+  border: 0;
+  background: linear-gradient(to bottom, #ffc400, #fac310, #daa802);
+  border-radius: 2vw;
+  font-family: "Asap", serif;
+  font-style: italic;
+  font-weight: 800;
+  color: #782c2c;
+  font-size: 2.5vw;
+  box-shadow: 0px 0px 12px #917003;
+  opacity: 0.98;
 }

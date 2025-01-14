@@ -19,22 +19,10 @@ body {
     align-items: center;
   }
 
-  .poker-table {
+  .poker-desk {
     position: absolute;
     width: 76%;
     display: flex;
-  }
-}
-
-/* Для мобильных ПК */
-@media (orientation: landscape) {
-  .poker-table {
-    height: calc(50vh);
-    /* width: calc(90vw); */
-    display: inline-block;
-    position: relative;
-    margin-top: 5vh;
-    /* padding: 50px; */
   }
 }
 

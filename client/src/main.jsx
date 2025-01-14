@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import HoldemRoom from "./pages/holdem/HoldemRoom.jsx";
+import HoldemSession from "./pages/holdem/HoldemSession.tsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <HoldemRoom />
+    <HoldemSession />
   </StrictMode>
 );

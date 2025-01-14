@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Целевая версия JavaScript
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Библиотеки, доступные в браузере
+    "allowJs": true, // Если нужны файлы .js
+    "checkJs": false, // Если не нужно проверять файлы .js
+    "strict": true, // Включает строгую проверку типов
+    "module": "ESNext", // Использование современных модулей
+    "moduleResolution": "Node", // Резолвинг модулей как в Node.js
+    "resolveJsonModule": true, // Разрешение JSON-файлов
+    "isolatedModules": true, // Необходим для React
+    "noEmit": true, // TypeScript не будет генерировать JS
+    "jsx": "react-jsx" // Важный параметр для работы с JSX
+  },
+  "include": ["src/**/*", "src/types.d.ts"],
+  "exclude": ["node_modules"] // Исключаем node_modules
+}
