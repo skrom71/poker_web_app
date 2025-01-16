@@ -10,7 +10,8 @@ export const initializeSocket = (
 ) => {
   socket = io("http://localhost:3000");
 
-  socket.on("connection", () => {
+  socket.on("connect", () => {
+    console.log("Connected with socket ID:", socket.id);
     socket.id && onConnect(socket.id);
   });
 
@@ -26,7 +27,7 @@ export const joinGame = (playerId: string, position: number) => {
     id: playerId,
     name: `Игрок ${playerId}`,
     stack: 1500,
-    cards: [],
+    cards: null,
     bet: 0,
     status: "active",
     position: position,

@@ -1,6 +1,6 @@
 export type GameState = {
   session_id: number;
-  players: Player[] | null;
+  seats: { [key: number]: Player | null };
   pot: number | null;
   community_cards: string[] | null;
   stage: Stage;
@@ -12,17 +12,12 @@ export type GameState = {
 
 type Player = {
   id: string;
-  position: Position;
   name: string;
   stack: number;
   cards: string[] | null;
   bet: number | null;
   status: string;
-};
-
-type Blind = {
-  small_blind: string;
-  big_blind: string;
+  position: number;
 };
 
 type Stage =
@@ -34,4 +29,23 @@ type Stage =
   | "river"
   | "showdown";
 
-type Position = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+// Инициализация состояния игры
+const gameState: GameState = {
+  session_id: 0,
+  seats: {
+    1: null,
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+    6: null,
+    7: null,
+  },
+  blinds: null,
+  community_cards: [],
+  pot: 0,
+  dealer_id: null,
+  current_player_id: null,
+  previous_bet: 0,
+  stage: "pending",
+};
