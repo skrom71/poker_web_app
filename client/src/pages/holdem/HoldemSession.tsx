@@ -77,15 +77,16 @@ const HoldemSession: React.FC = () => {
   return (
     <div className="main-container">
       <div className="poker-desk">
-        <img src={pokerDeskImage} className="background-image" />
+        <img src={pokerDeskImage} className="background-image"></img>
         {gameState && playerId && (
           <>
-            {gameState.pot && (
-              <div className="pot">
-                <img src={chip1} className="pot-icon" />
-                {gameState.pot}
-              </div>
-            )}
+            {Boolean(gameState.pot) &&
+              Boolean((gameState.pot as number) > 0) && (
+                <div className="pot">
+                  <img src={chip1} className="pot-icon" />
+                  {gameState.pot}
+                </div>
+              )}
 
             {gameState.blinds && (
               <div className="blinde">
@@ -102,7 +103,6 @@ const HoldemSession: React.FC = () => {
                   className="commun-card"
                 ></img>
               ))}
-
             {Object.entries(gameState.seats).map(([key, value]) => {
               const numericKey = Number(key);
               if (gameState.seats[numericKey]) {
@@ -117,8 +117,10 @@ const HoldemSession: React.FC = () => {
                         cards={gameState.seats[numericKey].cards}
                       />
                     </div>
-                    {gameState.seats[numericKey].bet &&
-                      gameState.seats[numericKey].bet > 0 && (
+                    {Boolean(gameState.seats[numericKey].bet) &&
+                      Boolean(
+                        (gameState.seats[numericKey].bet as number) > 0
+                      ) && (
                         <div
                           className={`player-bet player-${gameState.seats[numericKey].position}-bet`}
                         >
@@ -155,6 +157,7 @@ const HoldemSession: React.FC = () => {
       </div>
       {isCurrentPlayer && (
         <div className="toolbar">
+          7
           <button
             onClick={() => handleAction("fold")}
             className="toolbar-button red"

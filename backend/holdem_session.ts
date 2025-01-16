@@ -43,9 +43,9 @@ const gameState: GameState = {
     6: null,
     7: null,
   },
-  blinds: null,
+  blinds: { small_blind: 25, big_blind: 50 },
   community_cards: [],
-  pot: 120,
+  pot: 10,
   dealer_id: null,
   current_player_id: null,
   previous_bet: 0,
@@ -127,6 +127,7 @@ function initializePokerService(io: SocketServer) {
           return;
         }
       });
+      io.emit("gameState", gameState);
     });
   });
 }
