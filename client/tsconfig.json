@@ -11,7 +11,8 @@
     "isolatedModules": true, // Необходим для React
     "noEmit": true, // TypeScript не будет генерировать JS
     "jsx": "react-jsx", // Важный параметр для работы с JSX
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client"]
   },
   "include": ["src/**/*", "src/types.d.ts"],
   "exclude": ["node_modules"] // Исключаем node_modules
