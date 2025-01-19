@@ -139,7 +139,7 @@ function clearDesk() {
   gameState.community_cards = [];
   gameState.pot = 0;
   // gameState.dealer_id = null;
-  gameState.current_player_id = 0;
+  gameState.current_player_id = -1;
   gameState.previous_bet = 0;
   gameState.stage = null;
   gameState.deck = [];
