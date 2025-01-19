@@ -10,7 +10,7 @@ import {
 import pokerDeskImage from "/src/assets/images/poker-desk.png";
 import chip1 from "/src/assets/images/chip-1.png";
 import PlayerStatusBar from "../../components/PlayerStatusBar";
-import { GameState } from "./types/Types";
+import { GameState, Player } from "./types/Types";
 import "./HoldemSession.css";
 
 const HoldemSession: React.FC = () => {
@@ -34,13 +34,13 @@ const HoldemSession: React.FC = () => {
     }
   };
 
-  const handleStartRound = () => {
-    startRound();
-  };
+  // const handleStartRound = () => {
+  //   startRound();
+  // };
 
-  const handleAdvanceStage = () => {
-    advanceStage();
-  };
+  // const handleAdvanceStage = () => {
+  //   advanceStage();
+  // };
 
   const handleJoinPlayer = (playerId: string, position: number) => {
     if (playerId) {
@@ -52,27 +52,29 @@ const HoldemSession: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  let isCurrentPlayer: boolean | null = null;
-  let isDealer: boolean | null = null;
+  const positions = [1, 2, 3, 4, 5, 6, 7];
 
-  // if (gameState && gameState.players && gameState.current_player_id) {
-  //   isCurrentPlayer = gameState.current_player_id === playerId;
-  //   isDealer = gameState.dealer_id === playerId;
+  let isCurrentPlayer: boolean | null = null;
+  // let isDealer: boolean | null = null;
+
+  if (gameState.current_player_id !== undefined) {
+    isCurrentPlayer =
+      gameState.players[gameState.current_player_id]?.id === playerId;
+  }
+
+  // if (gameState.dealer_id !== undefined) {
+  //   isDealer = gameState.players[gameState.dealer_id]?.id === playerId;
   // }
 
-  let isJoined: boolean = false;
+  let joinedPlayer: Player | undefined;
 
-  if (gameState.seats && playerId) {
-    Object.entries(gameState.seats).forEach(([key, value]) => {
-      const numericKey = Number(key);
-      if (
-        gameState.seats[numericKey] &&
-        playerId === gameState.seats[numericKey].id
-      ) {
-        isJoined = true;
-      }
-    });
+  if (Boolean(gameState) !== null) {
+    joinedPlayer = gameState.players.find((player) => player.id === playerId);
   }
+
+  // if (joinedPlayer !== undefined && joinedPlayer.status === "folded") {
+  //   handleAction("");
+  // }
 
   return (
     <div className="main-container">
@@ -95,43 +97,69 @@ const HoldemSession: React.FC = () => {
               </div>
             )}
 
-            {gameState.community_cards &&
-              gameState.community_cards.map((cardName) => (
-                <img
-                  key={cardName}
-                  src={"/src/assets/images/" + cardName + ".png"}
-                  className="commun-card"
-                ></img>
-              ))}
-            {Object.entries(gameState.seats).map(([key, value]) => {
-              const numericKey = Number(key);
-              if (gameState.seats[numericKey]) {
+            {gameState.community_cards && (
+              <div className="commun-card-container">
+                {gameState.community_cards.map((cardName) => (
+                  <img
+                    key={cardName}
+                    src={"/src/assets/images/cards/" + cardName + ".png"}
+                    className="commun-card"
+                  ></img>
+                ))}
+              </div>
+            )}
+
+            {positions.map((position) => {
+              let playerByPosition: Player | undefined = gameState.players.find(
+                (player) => player.position === position
+              );
+
+              if (playerByPosition !== undefined) {
+                let stack =
+                  playerByPosition.status !== "active"
+                    ? playerByPosition.status
+                    : playerByPosition.stack.toString();
                 return (
                   <>
                     <div
-                      className={`player player-${gameState.seats[numericKey].position}`}
+                      className={`player player-${playerByPosition.position}`}
                     >
                       <PlayerStatusBar
-                        name={gameState.seats[numericKey].name}
-                        stack={gameState.seats[numericKey].stack.toString()}
-                        cards={gameState.seats[numericKey].cards}
+                        name={playerByPosition.name}
+                        stack={stack}
+                        cards={
+                          playerByPosition.id === playerId
+                            ? playerByPosition.cards
+                            : []
+                        }
                       />
                     </div>
-                    {Boolean(gameState.seats[numericKey].bet) &&
-                      Boolean(
-                        (gameState.seats[numericKey].bet as number) > 0
-                      ) && (
+                    {Boolean(playerByPosition.bet) &&
+                      Boolean((playerByPosition.bet as number) > 0) && (
                         <div
-                          className={`player-bet player-${gameState.seats[numericKey].position}-bet`}
+                          className={`player-bet player-${playerByPosition.position}-bet`}
                         >
-                          {gameState.seats[numericKey].bet}
+                          {playerByPosition.bet}
+                        </div>
+                      )}
+                    {gameState.dealer_id !== undefined &&
+                      gameState.players[gameState.dealer_id] &&
+                      playerByPosition.id ===
+                        gameState.players[gameState.dealer_id].id && (
+                        <div
+                          className={`player-dealer player-${playerByPosition.position}-dealer`}
+                        >
+                          <img
+                            src="/src/assets/images/chip-2.png"
+                            className="pot-icon"
+                          ></img>
                         </div>
                       )}
                   </>
                 );
-              } else if (isJoined) {
+              } else if (joinedPlayer !== undefined) {
                 return (
-                  <div className={`player player-${numericKey}`}>
+                  <div className={`player player-${position}`}>
                     <div className="invite-button-container">
                       <button className="invite-button">Invite</button>
                     </div>
@@ -139,13 +167,13 @@ const HoldemSession: React.FC = () => {
                 );
               } else {
                 return (
-                  <div className={`player player-${numericKey}`}>
+                  <div className={`player player-${position}`}>
                     <div className="join-button-container">
                       <button
                         className="join-button"
-                        onClick={() => handleJoinPlayer(playerId, numericKey)}
+                        onClick={() => handleJoinPlayer(playerId, position)}
                       >
-                        JOIN
+                        {position} JOIN
                       </button>
                     </div>
                   </div>
@@ -157,7 +185,6 @@ const HoldemSession: React.FC = () => {
       </div>
       {isCurrentPlayer && (
         <div className="toolbar">
-          7
           <button
             onClick={() => handleAction("fold")}
             className="toolbar-button red"

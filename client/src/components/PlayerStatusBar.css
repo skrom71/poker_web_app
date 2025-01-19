@@ -19,19 +19,25 @@
 }
 
 .player-status-bar-name {
-  padding-top: 0%;
+  padding-top: 2%;
+  padding-left: 10%;
+  padding-right: 5%;
   font-weight: 400;
   font-size: min(2vw, 2vh);
   color: white;
   background-color: black;
   border-bottom: 2px solid #00000000;
+  white-space: nowrap; /* Текст не переносится на новую строку */
+  overflow: hidden; /* Обрезает текст, выходящий за границы */
+  text-overflow: ellipsis; /* Добавляет троеточие для обрезанного текста */
 }
 
 .player-status-bar-balance {
-  font-weight: 200;
-  font-size: min(2vw, 2vh);
+  font-weight: 400;
+  font-size: min(2.1vw, 2.1vh);
   color: white;
   margin-bottom: 1px;
+  white-space: nowrap;
 }
 
 .player-status-bar-card1 {

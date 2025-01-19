@@ -29,8 +29,9 @@ export const joinGame = (playerId: string, position: number) => {
     stack: 1500,
     cards: null,
     bet: 0,
-    status: "active",
+    status: "pending",
     position: position,
+    isDealer: false,
   });
 };
 

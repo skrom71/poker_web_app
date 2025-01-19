@@ -4,17 +4,18 @@ import BackCardIcon from "/src/assets/images/card-back.png";
 
 interface PlayerStatusBarProps {
   name: string;
-  cards: string[] | null;
+  cards: string[];
   stack: string;
+  // isDealer: Boolean;
 }
 
 function PlayerStatusBar({ name, cards, stack }: PlayerStatusBarProps) {
   let card1Path: string;
   let card2Path: string;
 
-  if (cards !== null) {
-    card1Path = "/src/assets/images/" + cards[0] + ".png";
-    card2Path = "/src/assets/images/" + cards[1] + ".png";
+  if (cards !== null && cards.length > 0) {
+    card1Path = "/src/assets/images/cards/" + cards[0] + ".png";
+    card2Path = "/src/assets/images/cards/" + cards[1] + ".png";
   } else {
     card1Path = BackCardIcon;
     card2Path = BackCardIcon;

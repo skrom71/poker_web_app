@@ -13,7 +13,7 @@
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: cadetblue;
+    background: radial-gradient(circle, #3e3e3e, #3e3e3e);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,33 +51,33 @@
   }
 
   .player-3 {
-    left: -6%;
+    right: -6%;
     top: 30%;
     transform: translateY(-25%);
   }
 
   .player-4 {
-    left: -6%;
+    right: -6%;
     top: 70%;
     transform: translateY(-75%);
   }
 
   .player-5 {
-    right: -6%;
-    top: 30%;
-    transform: translateY(-25%);
+    bottom: -2%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .player-6 {
-    right: -6%;
+    left: -6%;
     top: 70%;
     transform: translateY(-75%);
   }
 
   .player-7 {
-    bottom: -2%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: -6%;
+    top: 30%;
+    transform: translateY(-25%);
   }
 
   /* bets ========================== */
@@ -109,29 +109,72 @@
   }
 
   .player-3-bet {
-    left: 14%;
+    right: 14%;
     top: 32%;
   }
 
   .player-4-bet {
-    left: 14%;
+    right: 14%;
     top: 65%;
   }
 
   .player-5-bet {
-    right: 14%;
-    top: 32%;
+    bottom: 12%;
+    left: 50%;
+    transform: translate(-50%);
   }
 
   .player-6-bet {
-    right: 14%;
+    left: 14%;
     top: 65%;
   }
 
   .player-7-bet {
-    bottom: 12%;
+    left: 14%;
+    top: 32%;
+  }
+
+  /*  */
+  .player-dealer {
+    height: 3%;
+    position: absolute;
+  }
+  .player-1-dealer {
+    top: 17%;
+    left: 30%;
+    transform: translate(-50%);
+  }
+
+  .player-2-dealer {
+    top: 17%;
+    right: 30%;
+    transform: translate(50%);
+  }
+
+  .player-3-dealer {
+    right: 25%;
+    top: 32%;
+  }
+
+  .player-4-dealer {
+    right: 25%;
+    top: 65%;
+  }
+
+  .player-5-dealer {
+    bottom: 17%;
     left: 50%;
     transform: translate(-50%);
+  }
+
+  .player-6-dealer {
+    left: 25%;
+    top: 65%;
+  }
+
+  .player-7-dealer {
+    left: 25%;
+    top: 32%;
   }
 
   .blinde {

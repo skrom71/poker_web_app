@@ -1,51 +1,43 @@
 export type GameState = {
   session_id: number;
-  seats: { [key: number]: Player | null };
-  pot: number | null;
-  community_cards: string[] | null;
-  stage: Stage;
-  current_player_id: string | null;
-  dealer_id: string | null;
-  previous_bet: number | null;
-  blinds: { small_blind: number; big_blind: number } | null;
+  players: Player[];
+  pot: number;
+  community_cards: string[];
+  stage:
+    | "pre-flop"
+    | "flop"
+    | "turn"
+    | "river"
+    | "showdown"
+    | "finished"
+    | null;
+  current_player_id: number | undefined;
+  dealer_id: number | undefined;
+  previous_bet: number;
+  blinds: { small_blind: number; big_blind: number };
+  deck: string[];
 };
 
-type Player = {
+export type Player = {
   id: string;
   name: string;
   stack: number;
-  cards: string[] | null;
-  bet: number | null;
+  cards: string[];
+  bet: number;
   status: string;
   position: number;
 };
 
-type Stage =
-  | "pending"
-  | "blind"
-  | "pre-flop"
-  | "flop"
-  | "turn"
-  | "river"
-  | "showdown";
-
 // Инициализация состояния игры
 const gameState: GameState = {
   session_id: 0,
-  seats: {
-    1: null,
-    2: null,
-    3: null,
-    4: null,
-    5: null,
-    6: null,
-    7: null,
-  },
-  blinds: null,
+  players: [],
+  blinds: { small_blind: 25, big_blind: 50 },
   community_cards: [],
   pot: 0,
-  dealer_id: null,
-  current_player_id: null,
+  dealer_id: undefined,
+  current_player_id: undefined,
   previous_bet: 0,
-  stage: "pending",
+  stage: null,
+  deck: [],
 };
