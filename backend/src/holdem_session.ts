@@ -87,6 +87,7 @@ function startNewRound(io: SocketServer): void {
   if (gameState.players.length < 2) {
     console.log("Недостаточно игроков для начала игры.");
     gameState.players.forEach((value) => (value.status = "pending"));
+    clearDesk();
     io.emit("gameState", gameState);
     return;
   }

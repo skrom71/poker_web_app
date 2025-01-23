@@ -1,8 +1,8 @@
 import express from "express"; // Импортируем express
 import http from "http";
 import { Server as SocketServer } from "socket.io";
-import apiRouter from "./api_service"; // Подключение API роутов
-import initializePokerService from "./holdem_session"; // Подключение сервиса игры в покер
+import apiRouter from "./src/api_service"; // Подключение API роутов
+import initializePokerService from "./src/holdem_session"; // Подключение сервиса игры в покер
 
 const app = express(); // Типизируется автоматически как express.Application
 const server = http.createServer(app); // Создаем HTTP сервер с app

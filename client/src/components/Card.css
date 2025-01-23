@@ -1,0 +1,34 @@
+.card-container {
+  width: 344px;
+  height: 513px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.card-rank {
+  font-family: "Asap" serif;
+  font-size: 2.5h;
+  position: absolute;
+  left: 1%;
+  top: 1%;
+}
+
+.card-rank black {
+  color: black;
+}
+
+.card-rank red {
+  color: #e51c00;
+}
+
+.card-suit {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 4%;
+}
+
+.card-back {
+  width: 100%;
+  height: 100%;
+}

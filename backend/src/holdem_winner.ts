@@ -7,6 +7,7 @@ import { Player } from "./holdem_session";
  * @param board - Карты на борде (5 карт)
  * @returns Массив имен победителей (в случае ничьей)
  */
+
 export function determineWinner(players: Player[], board: string[]): string[] {
   if (board.length !== 5) {
     throw new Error("На борде должно быть ровно 5 карт.");
