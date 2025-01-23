@@ -1,6 +1,6 @@
 // socketService.ts
 import { io, Socket } from "socket.io-client";
-import { GameState } from "./types/Types";
+import { GameState } from "./models/models";
 
 let socket: Socket;
 

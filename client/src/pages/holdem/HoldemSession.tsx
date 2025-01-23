@@ -10,7 +10,7 @@ import {
 import pokerDeskImage from "/src/assets/images/poker-desk.png";
 import chip1 from "/src/assets/images/chip-1.png";
 import PlayerStatusBar from "../../components/PlayerStatusBar";
-import { GameState, Player } from "./types/Types";
+import { GameState, Player } from "./models/models";
 import "./HoldemSession.css";
 import dealerIcon from "/src/assets/images/chip-2.png";
 import getCardImage from "../../components/cards";

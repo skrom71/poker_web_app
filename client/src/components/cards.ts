@@ -165,6 +165,6 @@ export default function getCardImage(card: string): string {
       return Ac;
 
     default:
-      return "/src/assets/images/cards/default.png"; // Путь для карты по умолчанию, если карта не найдена
+      return "/src/assets/images/card-back.png"; // Путь для карты по умолчанию, если карта не найдена
   }
 }

@@ -18,8 +18,8 @@ function PlayerStatusBar({ name, cards, stack }: PlayerStatusBarProps) {
     card1Path = getCardImage(cards[0]);
     card2Path = getCardImage(cards[1]);
   } else {
-    card1Path = BackCardIcon;
-    card2Path = BackCardIcon;
+    card1Path = getCardImage("");
+    card2Path = getCardImage("");
   }
 
   return (
